@@ -16,6 +16,10 @@ from scripts.db_connection import get_connection
 def configure_logging():
     log_level = logging.DEBUG
     log_path = os.path.join(project_root, "test_run.log")
+
+    # Clean the log file before tests begin
+    open(log_path, 'w').close()
+
     setup_logger(log_level, log_path)
     logging.info("Logger initialized for test run.")
 
