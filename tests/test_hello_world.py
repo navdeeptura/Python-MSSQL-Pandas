@@ -1,5 +1,7 @@
 import logging
+import pytest
 
+pytestmark = pytest.mark.current
 expected_message = "Hello World! This is real Navdeep, testing pytest is running"
 
 def test_hello():
