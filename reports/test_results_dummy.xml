@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="0.090" timestamp="2025-03-27T10:49:57.657348-04:00" hostname="Raman-PC"><testcase classname="tests.test_hello_world" name="test_hello" time="0.001" /><testcase classname="tests.test_hello_world" name="test_fail_hello" time="0.002"><failure message="AssertionError: assert 'Hello World!... fake Navdeep' == 'Hello World!...st is running'&#10;  &#10;  - Hello World! This is real Navdeep, testing pytest is running&#10;  + Hello World!, I am fake Navdeep">def test_fail_hello():
+        incorrect_message = "Hello World!, I am fake Navdeep"
+        print(f"Incorrect Message is '{incorrect_message}'")
+&gt;       assert incorrect_message == expected_message
+E       AssertionError: assert 'Hello World!... fake Navdeep' == 'Hello World!...st is running'
+E         
+E         - Hello World! This is real Navdeep, testing pytest is running
+E         + Hello World!, I am fake Navdeep
+
+tests\test_hello_world.py:13: AssertionError</failure></testcase></testsuite></testsuites>
