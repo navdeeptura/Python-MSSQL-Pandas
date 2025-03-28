@@ -42,6 +42,18 @@ def db_cursor(db_conn):
     finally:
         cursor.close()
 
+@pytest.fixture(autouse=True)
+def log_test_seperator(request):
+    test_name = request.node.name.upper()
+    separator = "=" * 120
+
+    logging.info(separator)
+    logging.info(f"Starting Test : '{test_name}'")
+    yield
+    logging.info(f"Finished Test: '{test_name}'")
+    logging.info(separator)
+
+
 
 
 

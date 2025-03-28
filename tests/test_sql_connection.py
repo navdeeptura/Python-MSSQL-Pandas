@@ -17,7 +17,7 @@ def test_insert_new_student(db_cursor):
     logging.info(f"rows_inserted are : {rows_inserted}")
     assert rows_inserted == 1
 
-@pytest.mark.current
+#@pytest.mark.current
 def test_update_table_name(db_cursor):
     query = """
         UPDATE student_information 
@@ -36,11 +36,20 @@ def test_update_table_name(db_cursor):
     assert data > 0
 
 @pytest.mark.current
+def test_delete_from_table(db_cursor):
+    query = """DELETE FROM student_information WHERE first_name = 'Kulw'"""
+    data = run_query(db_cursor, query)
+    logging.info(f"Number of rows deleted: '{data}'")
+    assert data == 1
+
+@pytest.mark.current
 def test_sql_connection(db_cursor):
-    query = "Select first_name, last_name, phone, address, city from student_information;"
+    query = "SELECT id, first_name, last_name, phone, address, city FROM student_information;"
     #logging.info(query)
     data = run_query(db_cursor, query, "dict")
     for row in data:
         logging.info(row)
     assert data[0]["first_name"] == "Navdeep"
+
+
 
